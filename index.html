@@ -2,83 +2,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0033A0">
-  <title>Vatar Beauty</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0033A0">
+<title>Vatar Beauty</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0033A0;
-      color: white;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .splash {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  color: #17233d;
+}
 
-    .logo {
-      width: 105px;
-      height: 105px;
-      border: 3px solid white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
+.screen {
+  min-height: 100vh;
+  display: none;
+}
 
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
+.screen.active {
+  display: flex;
+}
 
-    p {
-      font-size: 13px;
-      margin-top: 10px;
-      color: #dce8ff;
-      letter-spacing: 1px;
-    }
+/* SPLASH SCREEN */
 
-    .loader {
-      width: 35px;
-      height: 35px;
-      border: 3px solid #ffffff55;
-      border-top-color: white;
-      border-radius: 50%;
-      margin-top: 50px;
-      animation: spin 1s linear infinite;
-    }
+#splash {
+  background: #0033A0;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+.logo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+#splash h1 {
+  letter-spacing: 3px;
+  font-size: 29px;
+}
+
+#splash p {
+  margin-top: 8px;
+  color: #dce8ff;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #ffffff55;
+  border-top-color: white;
+  border-radius: 50%;
+  margin-top: 45px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ONBOARDING */
+
+#onboarding {
+  flex-direction: column;
+  padding: 25px;
+  max-width: 500px;
+  margin: auto;
+  width: 100%;
+}
+
+.top-logo {
+  color: #0033A0;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.hero {
+  height: 390px;
+  margin-top: 30px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #e7f1ff, #c5ddff);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: #ffffff70;
+  border-radius: 50%;
+}
+
+.bottle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transform: rotate(-8deg);
+}
+
+.product-bottle {
+  width: 100px;
+  height: 185px;
+  border-radius: 20px 20px 13px 13px;
+  background: linear-gradient(90deg, #0033A0, #1762c9);
+  box-shadow: 12px 15px 25px #0033a033;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-bottle::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  width: 36px;
+  height: 23px;
+  background: #0033A0;
+  border-radius: 5px 5px 2px 2px;
+}
+
+.product-bottle span {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.product-jar {
+  width: 115px;
+  height: 105px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 8px 15px 25px #0033a033;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0033A0;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+}
+
+.product-jar::before {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 18px;
+  background: #0033A0;
+  top: -15px;
+  border-radius: 7px;
+}
+
+.sparkle {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+}
+
+.s1 { top: 45px; left: 40px; }
+.s2 { bottom: 55px; right: 40px; }
+.s3 { top: 85px; right: 55px; }
+
+.content {
+  text-align: center;
+  padding: 30px 8px 15px;
+}
+
+.content h2 {
+  color: #0033A0;
+  font-size: 27px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.content p {
+  color: #78849a;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 22px 0;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  background: #d5e2f8;
+  border-radius: 10px;
+}
+
+.dots span:first-child {
+  width: 24px;
+  background: #0033A0;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 14px;
+  background: #0033A0;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #0033a033;
+}
+
+.start-btn:active {
+  transform: scale(.98);
+}
+
+.footer {
+  text-align: center;
+  color: #a1aabd;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+@media (max-height: 750px) {
+  .hero { height: 310px; }
+  .content { padding-top: 20px; }
+}
+</style>
 </head>
 
 <body>
-  <main class="splash">
-    <div class="logo">V</div>
-    <h1>VATAR BEAUTY</h1>
-    <p>BEAUTY IS YOUR POWER</p>
-    <div class="loader"></div>
-  </main>
+
+<!-- SPLASH SCREEN -->
+
+<section id="splash" class="screen active">
+  <div class="logo">V</div>
+  <h1>VATAR BEAUTY</h1>
+  <p>BEAUTY IS YOUR POWER</p>
+  <div class="loader"></div>
+</section>
+
+<!-- ONBOARDING SCREEN -->
+
+<section id="onboarding" class="screen">
+
+  <div class="top-logo">VATAR BEAUTY</div>
+
+  <div class="hero">
+    <div class="circle"></div>
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">✦</div>
+
+    <div class="bottle">
+      <div class="product-bottle">
+        <span>VATAR<br>BEAUTY<br><br>SKIN CARE</span>
+      </div>
+
+      <div class="product-jar">
+        VATAR<br>SOFT CREAM
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <h2>Beauty Knows<br>the Power</h2>
+
+    <p>
+      Discover your natural beauty with our
+      carefully selected skincare and beauty
+      essentials. Glow confidently every day.
+    </p>
+
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <button class="start-btn" onclick="getStarted()">
+      Get Started →
+    </button>
+
+    <div class="footer">
+      Your beauty, your confidence.
+    </div>
+  </div>
+
+</section>
+
+<script>
+const splash = document.getElementById("splash");
+const onboarding = document.getElementById("onboarding");
+
+setTimeout(() => {
+  splash.classList.remove("active");
+  onboarding.classList.add("active");
+}, 1800);
+
+function getStarted() {
+  alert("Welcome to Vatar Beauty! Your login screen is coming next.");
+}
+</script>
+
 </body>
 </html>
