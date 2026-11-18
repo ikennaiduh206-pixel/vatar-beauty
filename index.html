@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0033A0">
+  <title>Vatar Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0033A0;
+      color: white;
+    }
+
+    .splash {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .logo {
+      width: 105px;
+      height: 105px;
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #dce8ff;
+      letter-spacing: 1px;
+    }
+
+    .loader {
+      width: 35px;
+      height: 35px;
+      border: 3px solid #ffffff55;
+      border-top-color: white;
+      border-radius: 50%;
+      margin-top: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="splash">
+    <div class="logo">V</div>
+    <h1>VATAR BEAUTY</h1>
+    <p>BEAUTY IS YOUR POWER</p>
+    <div class="loader"></div>
+  </main>
+</body>
+</html>
