@@ -3,106 +3,103 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0033A0">
 <title>Vatar Beauty</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Poppins,sans-serif;background:#f7f9fd;color:#17233d}
 button,input{font-family:inherit}
+button{cursor:pointer}
 .screen{display:none;min-height:100vh}
 .screen.active{display:flex}
-.primary-btn{width:100%;padding:16px;border:0;border-radius:13px;background:#0033A0;color:white;font-size:15px;font-weight:600;cursor:pointer}
+.primary{background:#0033A0;color:white;border:0;border-radius:13px;padding:16px;width:100%;font-size:14px;font-weight:600}
+.brand{color:#0033A0;font-size:22px;font-weight:800;text-align:center;letter-spacing:1px}
 
 /* SPLASH */
 #splash{background:#0033A0;color:white;align-items:center;justify-content:center;flex-direction:column;text-align:center}
-.logo{width:100px;height:100px;border:3px solid white;border-radius:50%;display:grid;place-items:center;font-size:42px;font-weight:800;margin-bottom:20px}
-#splash h1{letter-spacing:3px;font-size:29px}
-#splash p{margin-top:8px;color:#dce8ff;font-size:12px;letter-spacing:2px}
-.loader{width:32px;height:32px;border:3px solid #ffffff55;border-top-color:white;border-radius:50%;margin-top:45px;animation:spin 1s linear infinite}
+.logo{width:100px;height:100px;border:3px solid white;border-radius:50%;display:grid;place-items:center;font-size:42px;font-weight:800}
+#splash h1{margin-top:20px;letter-spacing:3px}
+#splash p{font-size:12px;letter-spacing:2px;margin-top:8px}
+.loader{width:30px;height:30px;border:3px solid #ffffff55;border-top-color:white;border-radius:50%;margin-top:40px;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ONBOARDING */
-#onboarding{flex-direction:column;padding:25px;max-width:500px;margin:auto;width:100%;background:white}
-.top-logo{text-align:center;color:#0033A0;font-size:23px;font-weight:800;margin-top:15px}
-.hero{height:350px;margin-top:30px;border-radius:28px;background:linear-gradient(145deg,#e7f1ff,#c5ddff);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.circle{position:absolute;width:260px;height:260px;background:#ffffff70;border-radius:50%}
-.bottle{position:relative;z-index:2;display:flex;align-items:center;gap:18px;transform:rotate(-8deg)}
-.product-bottle{width:100px;height:185px;border-radius:20px;background:linear-gradient(90deg,#0033A0,#1762c9);display:grid;place-items:center;color:white;font-size:12px;font-weight:700;text-align:center}
-.product-jar{width:115px;height:105px;background:white;border-radius:15px;display:grid;place-items:center;color:#0033A0;font-weight:700;font-size:12px;text-align:center}
-.sparkle{position:absolute;color:white;font-size:30px}
-.s1{top:45px;left:40px}.s2{bottom:55px;right:40px}.s3{top:85px;right:55px}
-.content{text-align:center;padding:25px 8px}
+#onboarding,#login{background:white;max-width:500px;width:100%;margin:auto;padding:25px;flex-direction:column}
+.hero{height:330px;margin-top:25px;border-radius:25px;background:linear-gradient(145deg,#e7f1ff,#c5ddff);display:flex;align-items:center;justify-content:center;gap:15px}
+.bottle{background:#0033A0;color:white;width:100px;height:180px;border-radius:18px;display:grid;place-items:center;text-align:center;font-size:12px;font-weight:700}
+.jar{background:white;color:#0033A0;width:115px;height:100px;border-radius:15px;display:grid;place-items:center;font-size:12px;font-weight:700}
+.content{text-align:center;padding:25px 5px}
 .content h2{color:#0033A0;font-size:27px}
-.content p{color:#78849a;font-size:13px;line-height:1.8;margin:12px 0}
-.dots{display:flex;justify-content:center;gap:7px;margin:20px}
-.dots span{width:8px;height:8px;background:#d5e2f8;border-radius:10px}
-.dots span:first-child{width:24px;background:#0033A0}
+.content p{font-size:12px;color:#8490a5;line-height:1.8;margin:12px 0 22px}
 
 /* LOGIN */
-#login{flex-direction:column;align-items:center;padding:25px 22px;max-width:500px;margin:auto;width:100%;background:white}
-.login-logo{color:#0033A0;font-size:22px;font-weight:800;margin:15px 0 38px}
-.login-content{width:100%}
-.login-content h2{font-size:29px;color:#0033A0}
-.subtitle{color:#8993a5;font-size:13px;margin:7px 0 30px}
-.field-label{display:block;font-size:12px;font-weight:600;margin:17px 0 8px}
-.input-box{width:100%;height:54px;border:1px solid #e0e7f2;border-radius:12px;padding:0 15px;outline:none;font-size:13px;background:#f9fbff}
-.input-box:focus{border-color:#0033A0}
-.password-wrap{position:relative}
-.password-wrap input{padding-right:65px}
-.show-password{position:absolute;right:14px;top:17px;border:0;background:none;color:#0033A0;font-size:12px}
-.login-options{display:flex;justify-content:space-between;margin:17px 0 25px;font-size:11px}
-.forgot{color:#0033A0;text-decoration:none}
-.divider{display:flex;align-items:center;gap:12px;color:#a0a8b7;font-size:11px;margin:27px 0}
+#login{gap:20px}
+.login-box{margin-top:35px}
+.login-box h2{color:#0033A0;font-size:28px}
+.sub{color:#8993a5;font-size:12px;margin:8px 0 25px}
+label{display:block;font-size:12px;font-weight:600;margin:15px 0 8px}
+.field{width:100%;height:52px;border:1px solid #e0e7f2;border-radius:12px;padding:0 14px;background:#f9fbff;outline:none;font-size:13px}
+.password{position:relative}
+.show{position:absolute;right:12px;top:16px;background:none;border:0;color:#0033A0}
+.options{display:flex;justify-content:space-between;font-size:11px;margin:15px 0}
+.options a,.signup a{color:#0033A0;text-decoration:none}
+.divider{display:flex;align-items:center;gap:12px;color:#9aa4b5;font-size:11px;margin:23px 0}
 .divider:before,.divider:after{content:"";height:1px;background:#e8edf4;flex:1}
-.social-btn{width:100%;height:51px;background:white;border:1px solid #e0e7f2;border-radius:12px;margin-bottom:12px;font-size:13px;font-weight:600;color:#34415b}
-.signup{text-align:center;color:#8993a5;font-size:12px;margin-top:22px}
-.signup a{color:#0033A0;font-weight:700}
-.back-btn{background:none;border:0;color:#0033A0;margin-top:22px;cursor:pointer}
+.social{width:100%;padding:14px;border:1px solid #e0e7f2;border-radius:12px;background:white;margin-bottom:10px;font-weight:600;color:#34415b}
+.signup{text-align:center;font-size:12px;color:#8993a5;margin-top:15px}
 
 /* HOME */
-#home{display:none;flex-direction:column;background:#f7f9fd;max-width:600px;margin:auto;width:100%;padding-bottom:85px}
-.home-header{padding:25px 20px 20px;background:white;border-radius:0 0 25px 25px}
+#home{background:#f7f9fd;max-width:600px;margin:auto;width:100%;padding-bottom:85px;flex-direction:column}
+.header{background:white;padding:25px 20px;border-radius:0 0 22px 22px}
 .header-top{display:flex;justify-content:space-between;align-items:center}
-.greeting small{font-size:12px;color:#8993a5}
-.greeting h2{font-size:21px;color:#0033A0;margin-top:3px}
-.brand-small{font-size:14px;font-weight:800;color:#0033A0;letter-spacing:1px}
-.profile-icon{width:42px;height:42px;border-radius:50%;background:#e5efff;color:#0033A0;display:grid;place-items:center;font-weight:700}
-.search{margin-top:23px;display:flex;align-items:center;background:#f2f6fc;border-radius:13px;padding:0 15px;height:50px;gap:10px}
-.search span{font-size:20px;color:#0033A0}
-.search input{border:0;outline:none;background:transparent;width:100%;font-size:12px}
+.header small{font-size:11px;color:#8993a5}
+.header h2{font-size:20px;color:#0033A0}
+.avatar{width:42px;height:42px;background:#e5efff;border-radius:50%;display:grid;place-items:center;color:#0033A0;font-weight:700}
+.search{margin-top:20px;background:#f2f6fc;padding:14px;border-radius:12px;width:100%;border:0;outline:none}
 .home-body{padding:20px}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.section-title h3{font-size:16px;color:#17233d}
-.section-title a{font-size:11px;color:#0033A0;text-decoration:none}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
-.category{border:0;background:white;border-radius:14px;padding:13px 3px;text-align:center;cursor:pointer;color:#526078}
-.category .emoji{width:48px;height:48px;border-radius:50%;background:#e9f2ff;display:grid;place-items:center;margin:0 auto 8px;font-size:23px}
-.category span:last-child{font-size:10px;font-weight:600}
+.section-title{font-size:16px;margin-bottom:15px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:25px}
+.category{background:white;border:0;border-radius:13px;padding:12px 2px;color:#536078;font-size:10px}
+.category span{display:block;font-size:23px;margin-bottom:6px}
 .category.selected{background:#0033A0;color:white}
-.category.selected .emoji{background:#ffffff30}
-.banner{background:linear-gradient(110deg,#0033A0,#3779d9);color:white;border-radius:18px;padding:20px;margin-bottom:28px;position:relative;overflow:hidden}
-.banner small{font-size:10px;letter-spacing:1px}
-.banner h3{font-size:19px;margin:8px 0}
+.banner{background:linear-gradient(110deg,#0033A0,#3779d9);color:white;border-radius:18px;padding:20px;margin-bottom:25px}
+.banner h3{font-size:20px;margin:7px 0}
 .banner p{font-size:11px;color:#dce8ff}
-.banner .banner-symbol{position:absolute;right:15px;top:13px;font-size:65px;opacity:.3}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.product-card{background:white;border-radius:16px;padding:10px;overflow:hidden}
-.product-image{height:145px;border-radius:12px;background:#edf4ff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.product-image img{width:100%;height:100%;object-fit:cover}
-.product-card h4{font-size:12px;margin-top:12px;line-height:1.5}
-.product-card .category-name{font-size:10px;color:#9aa4b5;margin-top:4px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.product-card{background:white;border-radius:15px;padding:10px;cursor:pointer}
+.product-card img{width:100%;height:140px;object-fit:cover;border-radius:12px;background:#e9f2ff}
+.product-card h4{font-size:12px;margin-top:9px}
+.product-card small{color:#8993a5;font-size:10px}
 .price{color:#0033A0;font-size:14px;font-weight:700;margin:8px 0}
-.add-btn{width:100%;border:0;border-radius:9px;padding:10px;background:#0033A0;color:white;font-size:10px;font-weight:600;cursor:pointer}
-.add-btn:active{transform:scale(.97)}
-.empty-message{grid-column:1/-1;text-align:center;color:#8993a5;font-size:12px;padding:25px}
-.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:600px;background:white;box-shadow:0 -4px 20px #17233d0c;display:flex;justify-content:space-around;padding:12px 5px 15px;z-index:5}
-.nav-item{border:0;background:none;color:#9aa4b5;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
-.nav-item strong{font-size:19px;font-weight:400}
+.add{width:100%;background:#0033A0;color:white;border:0;border-radius:9px;padding:10px;font-size:10px}
+
+/* PRODUCT DETAILS */
+#details{background:white;max-width:600px;margin:auto;width:100%;padding:20px;flex-direction:column}
+.detail-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.back{background:#edf4ff;color:#0033A0;border:0;width:40px;height:40px;border-radius:50%;font-size:20px}
+.detail-image{width:100%;height:300px;object-fit:cover;border-radius:22px;background:#e9f2ff}
+.detail-category{color:#8993a5;font-size:12px;margin-top:22px}
+.detail-name{font-size:23px;color:#0033A0;margin-top:6px}
+.rating{color:#f3ad24;font-size:13px;margin:10px 0}
+.detail-price{font-size:23px;color:#0033A0;font-weight:700}
+.description{font-size:12px;line-height:1.9;color:#78849a;margin:15px 0 22px}
+.quantity-row{display:flex;justify-content:space-between;align-items:center;margin:20px 0}
+.quantity-row strong{font-size:13px}
+.quantity{display:flex;align-items:center;gap:18px;background:#edf4ff;padding:7px 12px;border-radius:10px}
+.quantity button{background:#0033A0;color:white;border:0;width:27px;height:27px;border-radius:7px;font-size:18px}
+.quantity span{font-weight:700;font-size:14px}
+.detail-actions{display:flex;gap:10px;margin-top:15px}
+.detail-actions button{flex:1}
+.secondary{background:white;color:#0033A0;border:1px solid #0033A0;border-radius:13px;padding:15px;font-size:12px;font-weight:600}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:600px;background:white;display:flex;justify-content:space-around;padding:13px 5px;box-shadow:0 -3px 20px #17233d0c;z-index:5}
+.nav-item{border:0;background:none;color:#8993a5;font-size:10px}
+.nav-item span{display:block;font-size:20px;margin-bottom:3px}
 .nav-item.active{color:#0033A0;font-weight:700}
-@media(min-width:600px){#home{box-shadow:0 0 30px #0033a010}.home-header{padding:30px}.home-body{padding:25px}}
 </style>
 </head>
 
@@ -116,162 +113,118 @@ button,input{font-family:inherit}
 </section>
 
 <section id="onboarding" class="screen">
-<div class="top-logo">VATAR BEAUTY</div>
+<div class="brand">VATAR BEAUTY</div>
 <div class="hero">
-<div class="circle"></div>
-<div class="sparkle s1">✦</div><div class="sparkle s2">✧</div><div class="sparkle s3">✦</div>
-<div class="bottle">
-<div class="product-bottle">VATAR<br>BEAUTY<br><br>SKIN CARE</div>
-<div class="product-jar">VATAR<br>SOFT CREAM</div>
-</div>
+<div class="bottle">VATAR<br>BEAUTY<br><br>SKIN CARE</div>
+<div class="jar">VATAR<br>SOFT CREAM</div>
 </div>
 <div class="content">
 <h2>Beauty Knows<br>the Power</h2>
 <p>Discover your natural beauty with our carefully selected skincare and beauty essentials. Glow confidently every day.</p>
-<div class="dots"><span></span><span></span><span></span></div>
-<button class="primary-btn" onclick="showScreen('login')">Get Started →</button>
+<button class="primary" onclick="showScreen('login')">Get Started →</button>
 </div>
 </section>
 
 <section id="login" class="screen">
-<div class="login-logo">VATAR BEAUTY</div>
-<div class="login-content">
+<div class="brand">VATAR BEAUTY</div>
+<div class="login-box">
 <h2>Welcome Back</h2>
-<p class="subtitle">Sign in to continue your beauty journey.</p>
+<p class="sub">Sign in to continue your beauty journey.</p>
 <form onsubmit="demoLogin(event)">
-<label class="field-label" for="email">Email Address</label>
-<input class="input-box" type="email" id="email" placeholder="Enter your email" required>
-<label class="field-label" for="password">Password</label>
-<div class="password-wrap">
-<input class="input-box" type="password" id="password" placeholder="Enter your password" required minlength="4">
-<button type="button" class="show-password" onclick="togglePassword()">Show</button>
+<label>Email Address</label>
+<input class="field" type="email" placeholder="Enter your email" required>
+<label>Password</label>
+<div class="password">
+<input class="field" id="password" type="password" placeholder="Enter your password" required minlength="4">
+<button class="show" type="button" onclick="togglePassword()">Show</button>
 </div>
-<div class="login-options">
-<label><input type="checkbox"> Remember me</label>
-<a href="#" class="forgot" onclick="forgotPassword(event)">Forgot Password?</a>
-</div>
-<button class="primary-btn" type="submit">Sign In</button>
+<div class="options"><span><input type="checkbox"> Remember me</span><a href="#" onclick="alert('Password recovery will be added later')">Forgot Password?</a></div>
+<button class="primary">Sign In</button>
 </form>
 <div class="divider">Or continue with</div>
-<button class="social-btn" onclick="socialDemo('Google')">🌐 Continue with Google</button>
-<button class="social-btn" onclick="socialDemo('Facebook')">f &nbsp; Continue with Facebook</button>
-<p class="signup">Don't have an account? <a href="#" onclick="createAccount(event)">Create Account</a></p>
+<button class="social" onclick="socialDemo('Google')">🌐 Continue with Google</button>
+<button class="social" onclick="socialDemo('Facebook')">f &nbsp; Continue with Facebook</button>
+<p class="signup">Don't have an account? <a href="#" onclick="alert('Registration will be added later')">Create Account</a></p>
 </div>
-<button class="back-btn" onclick="showScreen('onboarding')">← Back</button>
 </section>
 
-<!-- HOME SCREEN -->
 <section id="home" class="screen">
-
-<header class="home-header">
+<header class="header">
 <div class="header-top">
-<div class="greeting">
-<small>Good day,</small>
-<h2>Welcome, Anee! 👋</h2>
+<div><small>Good day,</small><h2>Welcome, Anee! 👋</h2></div>
+<div class="avatar">A</div>
 </div>
-<div class="profile-icon">A</div>
-</div>
-
-<div class="search">
-<span>⌕</span>
-<input type="search" id="searchInput" placeholder="Search beauty products..." oninput="renderProducts()">
-</div>
+<input class="search" id="search" placeholder="⌕  Search beauty products..." oninput="renderProducts()">
 </header>
 
 <main class="home-body">
-
-<div class="section-title">
-<h3>Categories</h3>
-<a href="#" onclick="selectCategory('All',event)">See all</a>
-</div>
-
+<h3 class="section-title">Categories</h3>
 <div class="categories">
-<button class="category selected" onclick="selectCategory('All',event)">
-<span class="emoji">✨</span><span>All</span>
-</button>
-<button class="category" onclick="selectCategory('Face',event)">
-<span class="emoji">🌸</span><span>Face</span>
-</button>
-<button class="category" onclick="selectCategory('Body',event)">
-<span class="emoji">🧴</span><span>Body</span>
-</button>
-<button class="category" onclick="selectCategory('Hair',event)">
-<span class="emoji">💆</span><span>Hair</span>
-</button>
+<button class="category selected" onclick="filterCategory('All',this)"><span>✨</span>All</button>
+<button class="category" onclick="filterCategory('Face',this)"><span>🌸</span>Face</button>
+<button class="category" onclick="filterCategory('Body',this)"><span>🧴</span>Body</button>
+<button class="category" onclick="filterCategory('Hair',this)"><span>💆</span>Hair</button>
 </div>
-
 <div class="banner">
 <small>VATAR BEAUTY COLLECTION</small>
 <h3>Feel Beautiful.<br>Feel Confident.</h3>
 <p>Discover your everyday beauty essentials.</p>
-<div class="banner-symbol">✿</div>
 </div>
-
-<div class="section-title">
-<h3>Popular Products</h3>
-<a href="#" onclick="selectCategory('All',event)">View all</a>
-</div>
-
+<h3 class="section-title">Popular Products</h3>
 <div class="products" id="productGrid"></div>
-
 </main>
 
 <nav class="bottom-nav">
-<button class="nav-item active" onclick="showHome()"><strong>⌂</strong>Home</button>
-<button class="nav-item" onclick="showCategory()"><strong>▦</strong>Categories</button>
-<button class="nav-item" onclick="showCart()"><strong>🛍</strong>Cart</button>
-<button class="nav-item" onclick="showProfile()"><strong>●</strong>Profile</button>
+<button class="nav-item active" onclick="showScreen('home')"><span>⌂</span>Home</button>
+<button class="nav-item" onclick="filterCategory('All')"><span>▦</span>Categories</button>
+<button class="nav-item" onclick="showCart()"><span>🛍</span>Cart</button>
+<button class="nav-item" onclick="alert('Profile coming soon')"><span>●</span>Profile</button>
 </nav>
+</section>
 
+<section id="details" class="screen">
+<div class="detail-top">
+<button class="back" onclick="showScreen('home')">←</button>
+<div class="brand">VATAR BEAUTY</div>
+<button class="back" onclick="showCart()">🛍</button>
+</div>
+
+<img id="detailImage" class="detail-image" src="" alt="Beauty product">
+
+<p class="detail-category" id="detailCategory"></p>
+<h2 class="detail-name" id="detailName"></h2>
+<div class="rating">★★★★★ <span style="color:#8993a5"> (4.8)</span></div>
+<div class="detail-price" id="detailPrice"></div>
+<p class="description" id="detailDescription"></p>
+
+<div class="quantity-row">
+<strong>Select Quantity</strong>
+<div class="quantity">
+<button onclick="changeQuantity(-1)">−</button>
+<span id="quantity">1</span>
+<button onclick="changeQuantity(1)">+</button>
+</div>
+</div>
+
+<div class="detail-actions">
+<button class="secondary" onclick="addDetailToCart()">Add to Cart</button>
+<button class="primary" onclick="buyNow()">Buy Now</button>
+</div>
 </section>
 
 <script>
-const products = [
-{
-id:1,
-name:"Cherry Blossom",
-category:"Face",
-price:250.50,
-image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"
-},
-{
-id:2,
-name:"Nourishing Cocoa",
-category:"Body",
-price:250.50,
-image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500"
-},
-{
-id:3,
-name:"Refreshingly Soft Cream",
-category:"Face",
-price:150.50,
-image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=500"
-},
-{
-id:4,
-name:"Glow Hair Serum",
-category:"Hair",
-price:350.00,
-image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500"
-},
-{
-id:5,
-name:"Daily Face Moisturizer",
-category:"Face",
-price:450.00,
-image:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500"
-},
-{
-id:6,
-name:"Body Glow Lotion",
-category:"Body",
-price:300.00,
-image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"
-}
+const products=[
+{id:1,name:"Cherry Blossom",category:"Face",price:250.50,image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600",description:"A refreshing beauty essential designed to leave your skin feeling soft, smooth and beautifully cared for."},
+{id:2,name:"Nourishing Cocoa",category:"Body",price:250.50,image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=600",description:"A nourishing body care product for a soft, comfortable and moisturized feel."},
+{id:3,name:"Refreshingly Soft Cream",category:"Face",price:150.50,image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=600",description:"A lightweight moisturizing face cream for your daily skincare routine."},
+{id:4,name:"Glow Hair Serum",category:"Hair",price:350,image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600",description:"A beauty essential to complement your hair care routine."},
+{id:5,name:"Daily Face Moisturizer",category:"Face",price:450,image:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600",description:"A daily moisturizer for a fresh and comfortable skincare routine."},
+{id:6,name:"Body Glow Lotion",category:"Body",price:300,image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600",description:"A body care essential to keep your skin feeling smooth and nourished."}
 ];
 
-let selectedCategory="All";
+let category="All";
+let currentProduct=null;
+let quantity=1;
 let cart=[];
 
 function showScreen(id){
@@ -284,7 +237,7 @@ setTimeout(()=>showScreen('onboarding'),1800);
 
 function togglePassword(){
 const p=document.getElementById('password');
-const b=document.querySelector('.show-password');
+const b=document.querySelector('.show');
 p.type=p.type==='password'?'text':'password';
 b.textContent=p.type==='password'?'Show':'Hide';
 }
@@ -296,76 +249,74 @@ renderProducts();
 }
 
 function socialDemo(name){
-alert(name+' login is for demonstration only.');
+alert(name+' login is demonstration only.');
 }
 
-function forgotPassword(e){
-e.preventDefault();
-alert('Password recovery will be available with real authentication.');
-}
-
-function createAccount(e){
-e.preventDefault();
-alert('Account registration will be added later.');
+function filterCategory(value,button){
+category=value;
+document.querySelectorAll('.category').forEach(b=>b.classList.remove('selected'));
+if(button)button.classList.add('selected');
+renderProducts();
 }
 
 function renderProducts(){
-const search=document.getElementById('searchInput').value.toLowerCase();
+const term=document.getElementById('search').value.toLowerCase();
 const filtered=products.filter(p=>
-(selectedCategory==='All'||p.category===selectedCategory)&&
-p.name.toLowerCase().includes(search)
+(category==='All'||p.category===category)&&p.name.toLowerCase().includes(term)
 );
-
-document.getElementById('productGrid').innerHTML=filtered.length
-?filtered.map(p=>`
-<div class="product-card">
-<div class="product-image">
+document.getElementById('productGrid').innerHTML=filtered.length?filtered.map(p=>`
+<div class="product-card" onclick="openProduct(${p.id})">
 <img src="${p.image}" alt="${p.name}" loading="lazy">
-</div>
 <h4>${p.name}</h4>
-<p class="category-name">${p.category}</p>
+<small>${p.category}</small>
 <div class="price">₦${p.price.toFixed(2)}</div>
-<button class="add-btn" onclick="addToCart(${p.id})">+ Add to Cart</button>
-</div>
-`).join('')
-:'<div class="empty-message">No matching products found.</div>';
+<button class="add" onclick="event.stopPropagation();addToCart(${p.id})">+ Add to Cart</button>
+</div>`).join(''):'<p>No products found.</p>';
 }
 
-function selectCategory(category,e){
-if(e)e.preventDefault();
-selectedCategory=category;
-document.querySelectorAll('.category').forEach(b=>b.classList.remove('selected'));
-const buttons=document.querySelectorAll('.category');
-const names=['All','Face','Body','Hair'];
-const index=names.indexOf(category);
-if(index>=0)buttons[index].classList.add('selected');
-renderProducts();
+function openProduct(id){
+currentProduct=products.find(p=>p.id===id);
+quantity=1;
+document.getElementById('detailImage').src=currentProduct.image;
+document.getElementById('detailImage').alt=currentProduct.name;
+document.getElementById('detailName').textContent=currentProduct.name;
+document.getElementById('detailCategory').textContent=currentProduct.category+' CARE';
+document.getElementById('detailPrice').textContent='₦'+currentProduct.price.toFixed(2);
+document.getElementById('detailDescription').textContent=currentProduct.description;
+document.getElementById('quantity').textContent=quantity;
+showScreen('details');
+}
+
+function changeQuantity(amount){
+quantity=Math.max(1,quantity+amount);
+document.getElementById('quantity').textContent=quantity;
 }
 
 function addToCart(id){
-const existing=cart.find(item=>item.id===id);
-if(existing)existing.quantity++;
+const item=cart.find(p=>p.id===id);
+if(item)item.quantity++;
 else cart.push({id,quantity:1});
-const product=products.find(p=>p.id===id);
-alert(product.name+' added to your cart!');
+alert('Product added to your cart!');
 }
 
-function showHome(){
-showScreen('home');
-renderProducts();
+function addDetailToCart(){
+const item=cart.find(p=>p.id===currentProduct.id);
+if(item)item.quantity+=quantity;
+else cart.push({id:currentProduct.id,quantity});
+alert(quantity+' × '+currentProduct.name+' added to your cart!');
 }
 
-function showCategory(){
-showHome();
-document.querySelector('.section-title').scrollIntoView({behavior:'smooth'});
+function buyNow(){
+addDetailToCart();
+showCart();
 }
 
 function showCart(){
-alert('Your cart contains '+cart.reduce((sum,item)=>sum+item.quantity,0)+' item(s). We will build the full cart screen in Step 9.');
-}
-
-function showProfile(){
-alert('Your Vatar Beauty profile will be built later.');
+const total=cart.reduce((sum,item)=>{
+const p=products.find(x=>x.id===item.id);
+return sum+p.price*item.quantity;
+},0);
+alert('Your cart total is ₦'+total.toFixed(2)+'. Full cart screen is coming in Step 9.');
 }
 
 renderProducts();
